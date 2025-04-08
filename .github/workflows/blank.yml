@@ -1,0 +1,19 @@
+name: Unzip File
+
+on:
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Unzip the file
+        run: |
+          unzip *.zip -d  k8s-aws
+          
+      - name: Show contents
+        run: |
+          ls -R k8s-aws
